@@ -7,17 +7,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "year")
+@Table(name = "ano_fiscal")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Year {
+public class AnoFiscal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    @Column(name = "id")
-    private Integer yearId;
+    private Integer codigo;
 
-    @NotBlank(message = "year-1")
-    private String yearName;
+    @NotBlank(message = "ano-1")
+    private String nome;
 }
