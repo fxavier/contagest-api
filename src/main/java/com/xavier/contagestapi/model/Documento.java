@@ -5,28 +5,28 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "ano_fiscal")
+@Table(name = "documento")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class AnoFiscal {
+public class Documento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @EqualsAndHashCode.Include
     private Integer codigo;
 
-    @NotNull(message = "ano-1")
-    private Integer nome;
+    @NotBlank(message = "documento-1")
+    private String nome;
 
     @Transient
     public Boolean isNovo() {
         return this.codigo == null;
     }
 
-    @Transient Boolean isExiste() {
-        return  this.codigo != null;
+    @Transient
+    public Boolean isExiste() {
+        return this.codigo != null;
     }
 }
